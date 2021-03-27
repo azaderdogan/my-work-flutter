@@ -5,25 +5,25 @@ import 'package:my_work/config/constants.dart';
 
 import 'components/body.dart';
 
-
 class HomeScreen extends StatelessWidget {
   static String routeName = '/home';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: buildAppbar(),
+      appBar: _buildAppBar(context),
       body: Body(),
     );
   }
 
-  AppBar buildAppbar() {
+  AppBar _buildAppBar(BuildContext context) {
     return AppBar(
       title: Text(
         'İş Defterim',
-        style:
-        TextStyle(color: kPrimaryColor, fontSize: 22, letterSpacing: 1.2),
+        style: Theme.of(context)
+            .textTheme
+            .headline5
+            .copyWith(color: kPrimaryColor),
       ),
-      centerTitle: true,
       elevation: 0,
       backgroundColor: ThemeData().scaffoldBackgroundColor,
     );

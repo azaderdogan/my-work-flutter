@@ -1,20 +1,19 @@
 import 'package:my_work/models/base_model.dart';
 
-class Work extends BaseModel{
+class Work extends BaseModel {
   int id;
-  int workPrice = 0;
-  int businessOwner;
+  double workPrice = 0;
+  String businessOwner;
   String workContent;
   DateTime workDate;
-  int remainingPayment = 0;
+  int amountPaid = 0;
 
   Work(
-      {
-      this.businessOwner,
+      {this.businessOwner,
       this.workContent,
       this.workPrice = 0,
       this.workDate,
-      this.remainingPayment});
+      this.amountPaid});
 
   Work.withId({
     this.id,
@@ -38,7 +37,7 @@ class Work extends BaseModel{
   }
 
   @override
-  Map<String, dynamic>  toMap() {
+  Map<String, dynamic> toMap() {
     //todo
     print(this.workDate.toLocal());
     Map map = Map<String, dynamic>();
