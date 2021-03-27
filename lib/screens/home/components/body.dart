@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_work/config/constants.dart';
-import 'package:my_work/screens/work_screen/components/preview_work.dart';
+import 'package:my_work/screens/home/components/preview_work.dart';
 
 class Body extends StatefulWidget {
   const Body({
