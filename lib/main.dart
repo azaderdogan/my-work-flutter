@@ -1,22 +1,23 @@
 import 'package:flutter/material.dart';
-import 'package:my_work/config/constants.dart';
-import 'package:my_work/screens/work_screen/work_screen.dart';
+import 'package:my_work/config/routes.dart';
+import 'package:my_work/screens/home/home_screen.dart';
 
 void main() {
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+      title: 'gfhgfh',
       theme: ThemeData(
-          primarySwatch: Colors.blue,
+          primarySwatch: Colors.blue
           ),
-      home: WorkScreen(),
+      initialRoute: HomeScreen.routeName,
+      routes: routes,
     );
   }
 }
