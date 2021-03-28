@@ -1,9 +1,10 @@
 import 'package:my_work/models/base_model.dart';
+import 'package:my_work/models/work_type.dart';
 
 class WorkDetail extends BaseModel {
   int id;
   int workId;
-  int workTypeId;
+  WorkType workType;
   DateTime workDate;
   double workAmount;
   String address;
@@ -11,12 +12,12 @@ class WorkDetail extends BaseModel {
 
 
   WorkDetail(
-      {this.workId, this.workTypeId, this.workDate, this.workAmount, this.address,this.workContent});
+      {this.workId, this.workType, this.workDate, this.workAmount, this.address,this.workContent});
 
   WorkDetail.withId({
     this.id,
     this.workId,
-    this.workTypeId,
+    this.workType,
     this.workDate,
     this.workAmount,
     this.address
@@ -25,7 +26,7 @@ class WorkDetail extends BaseModel {
   WorkDetail.fromMap(dynamic object) {
     this.id = object["id"];
     this.workId = object["workId"];
-    this.workTypeId = object["workTypeId"];
+
     this.workAmount = object["workAmount"];
     this.address = object["address"];
     this.workContent = object["workContent"];
@@ -33,6 +34,10 @@ class WorkDetail extends BaseModel {
       this.workDate = DateTime.parse(object["workDate"]);
     } else {
       this.workDate = DateTime.now();
+    }
+
+    if (object["workType"] != null) {
+      this.workType = WorkType.fromMap(object['workType']);
     }
   }
 
@@ -43,7 +48,7 @@ class WorkDetail extends BaseModel {
     Map map = Map<String, dynamic>();
     map["workId"] = this.workId;
     map["workDate"] = this.workDate.toUtc().toString();
-    map["workTypeId"] = this.workTypeId;
+    map["workType"] = this.workType.toMap();
     map["workAmount"] = this.workAmount;
     map["address"] = this.address;
     map["workContent"] = this.workContent;
